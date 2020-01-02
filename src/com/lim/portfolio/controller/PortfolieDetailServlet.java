@@ -14,15 +14,18 @@ public class PortfolieDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+		// parameter : no
+		int no = Integer.parseInt(request.getParameter("no"));
+
 		PortfolioService pService = new PortfolioService();
 		try {
-			request.setAttribute("list", pService.getList());
-			request.getRequestDispatcher("portfolio_list.jsp").forward(request, response);
+			request.setAttribute("portfolio", pService.getDetail(no));
+			request.getRequestDispatcher("portfolio_detail.jsp").forward(request, response);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMsg", e.getMessage());
-			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 	}
 
