@@ -20,7 +20,7 @@ public class PortfolioSearchServlet extends HttpServlet {
 			request.setCharacterEncoding("utf-8");
 			String title = request.getParameter("title");
 			request.setAttribute("list", pService.search(title));
-			request.getRequestDispatcher("portfolio_list.jsp").forward(request, response);
+			request.getRequestDispatcher("ProjectList.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMsg", e.getMessage());

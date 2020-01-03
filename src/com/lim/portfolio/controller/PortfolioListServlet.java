@@ -18,7 +18,7 @@ public class PortfolioListServlet extends HttpServlet {
 		PortfolioService pService = new PortfolioService();
 		try {
 			request.setAttribute("list", pService.getList());
-			request.getRequestDispatcher("portfolio_list.jsp").forward(request, response);
+			request.getRequestDispatcher("ProjectList.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMsg", e.getMessage());
